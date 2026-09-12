@@ -18,7 +18,6 @@ jobs:
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq gcc
-
       - name: Verificar estrutura
         run: |
           if [ ! -d "praticas" ]; then
@@ -27,16 +26,13 @@ jobs:
             exit 1
           fi
           echo "✅ PASTA 'praticas/' encontrada."        
-
       - name: Compilar práticas
         run: |
           set -e
           ERROS=0
           SUCESSOS=0
-
           echo "🔍 Procurando arquivos .c em praticas/*/ ..."
           echo ""
-
           for PASTA in ./praticas/*/; do
             [ -d "$PASTA" ] || continue
             
@@ -52,7 +48,7 @@ jobs:
             
             echo "   Compilando..."
               
-            if gcc -Wall -Wextra -Werror -std=c11 "$PASTA/*.c" -o "$PASTA/main" -lm 2>&1; then
+            if gcc -Wall -Wextra -Werror -std=c11 $ARQUIVOS_C -o "${PASTA}main" -lm 2>&1; then
               echo "   ✅ SUCESSO"
               SUCESSOS=$((SUCESSOS + 1))
             else
@@ -61,7 +57,6 @@ jobs:
             fi
             echo ""
           done
-
           echo "========================================"
           echo "📊 RESUMO: $SUCESSOS OK | $ERROS ERRO(S)"
           echo "========================================"
