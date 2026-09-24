@@ -1,6 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "../pratica01/grafo_lista.h"
+#include "../pratica01/grafo_lista.c"  
 #include "busca_largura.h"
 #include "busca_profundidade.h"
 

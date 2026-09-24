@@ -1,7 +1,7 @@
 CC = gcc
-CFLAGS = -Wall -Wextra -std=c99 -I. -I../pratica01
+CFLAGS = -Wall -Wextra -std=c99 -I.
 TARGET = main
-SRCS = main.c busca_largura.c busca_profundidade.c ../pratica01/grafo_lista.c
+SRCS = main.c busca_largura.c busca_profundidade.c
 OBJS = $(SRCS:.c=.o)
 
 all: $(TARGET)
@@ -13,6 +13,6 @@ $(TARGET): $(OBJS)
 	$(CC) $(CFLAGS) -c $< -o $@
 
 clean:
-	rm -f *.o $(TARGET) $(TARGET).exe ../pratica01/*.o
+	rm -f *.o $(TARGET) $(TARGET).exe
 
 .PHONY: all clean
