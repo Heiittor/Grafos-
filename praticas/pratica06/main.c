@@ -32,3 +32,4 @@ int main() {
     liberar_grafo_ponderado(g);
     return 0;
 }// Atualizacao
+// Forcando nova verificacao do CI
